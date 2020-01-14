@@ -1,0 +1,47 @@
+{
+  "name": "jobin-app-ui-components",
+  "version": "0.0.1",
+  "main": "dist/prod.js",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook -c storybook -o docs",
+    "svgr": "svgr -d src/icons/ assets/",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.9.0",
+    "@storybook/addon-actions": "^5.3.1",
+    "@storybook/addon-links": "^5.3.1",
+    "@storybook/addons": "^5.3.1",
+    "@storybook/react-native": "^5.3.1",
+    "@storybook/react-native-server": "^5.3.1",
+    "@svgr/cli": "^4.3.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "contributors": [
+    {
+      "name": "Ricardo Veronese Ricci"
+    }
+  ]
+}
