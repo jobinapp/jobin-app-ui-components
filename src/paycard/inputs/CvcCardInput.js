@@ -19,7 +19,7 @@ const Container = styled.View`
     padding-top: 15px;
     padding-bottom: 17px;
     border-bottom-width: 1px;
-    border-bottom-color: ${props => props.valid ? lineColor : redJobinColor};
+    border-bottom-color: ${props => (props.valid ? lineColor : redJobinColor)};
 `;
 
 const CardInput = styled.TextInput`
@@ -27,7 +27,7 @@ const CardInput = styled.TextInput`
     font-family: ${mainSemibold};
     color: ${softblackColor};
     margin-top: 7px;
-`
+`;
 
 const CvcCardInput = props => {
     const [cvc, setCvc] = useState(null);

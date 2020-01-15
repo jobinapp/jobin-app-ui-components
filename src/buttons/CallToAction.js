@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import CustomText from "../CustomText";
-import { whiteColor, greenJobinColor } from "../../constants/color";
+import { greenJobinColor } from "../../constants/color";
 
 const ButtonStyled = styled.TouchableOpacity`
     min-width: 100px;
@@ -11,7 +11,6 @@ const ButtonStyled = styled.TouchableOpacity`
 `;
 
 const CallToAction = props => {
-
     return (
         <ButtonStyled
             style={props.style}

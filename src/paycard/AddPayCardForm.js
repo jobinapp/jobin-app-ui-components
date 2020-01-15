@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+import styled from "styled-components";
 
 import CardNumberInput from "./inputs/CardNumberInput";
 import CardNameInput from "./inputs/CardNameInput";
 import CardExpiryDateInput from "./inputs/CardExpiryDateInput";
 import CvcCardInput from "./inputs/CvcCardInput";
 
-const styles = StyleSheet.create({
-    rowView: {
-        height: 80,
-        width: 100 + "%",
-        flexDirection: "row"
-    },
-    twoInputsView: {
-        height: 80,
-        width: 50 + "%"
-    }
-});
+const RootView = styled.View`
+    height: 80px;
+    width: 100%;
+    flex-direction: "row";
+`;
+
+const TwoInputsView = styled.View`
+    height: 80px;
+    width: 50%;
+`;
 
 const AddPayCardForm = props => {
     const [cardNumberValid, setCardNumberValid] = useState(true);
@@ -50,17 +50,17 @@ const AddPayCardForm = props => {
                 getCardNumber={getCardNumber}
                 valid={cardNumberValid}
             />
-            <View style={styles.rowView}>
-                <View style={styles.twoInputsView}>
+            <RootView>
+                <TwoInputsView>
                     <CardExpiryDateInput
                         getMonthAndYear={getMonthAndYear}
                         valid={dateValid}
                     />
-                </View>
-                <View style={styles.twoInputsView}>
+                </TwoInputsView>
+                <TwoInputsView>
                     <CvcCardInput getCVC={getCVC} valid={cvcValid} />
-                </View>
-            </View>
+                </TwoInputsView>
+            </RootView>
             <CardNameInput getCardName={getCardName} valid={nameValid} />
         </View>
     );

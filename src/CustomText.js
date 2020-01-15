@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Platform } from "react-native";
+import { Text } from "react-native";
 
 import { softblackColor } from "../constants/color";
 import {

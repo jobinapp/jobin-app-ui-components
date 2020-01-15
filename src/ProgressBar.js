@@ -19,7 +19,7 @@ const BarView = styled.View`
     border-radius: ${props => (props.height ? props.height / 2 : 2)};
 `;
 
-const ProgressBar = props => {
+const ProgressBar = () => {
     return (
         <BarView>
             <ProgressView />

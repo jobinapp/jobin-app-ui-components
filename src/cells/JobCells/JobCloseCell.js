@@ -1,100 +1,92 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { View } from "react-native";
+import styled from "styled-components";
 
 import JobCell from "../root/JobCell";
 import Text from "../../CustomText";
 
 import { lineColor, greenJobinColor } from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    reviewView: {
-        flex: 1,
-        marginLeft: 16,
-        marginRight: 16,
-        paddingTop: 20
-    },
-    joberView: {
-        flex: 1,
-        flexDirection: "row",
-        marginBottom: 10
-    },
-    joberImage: {
-        height: 48,
-        width: 48,
-        borderRadius: 24,
-        marginRight: 12,
-        backgroundColor: lineColor
-    },
-    joberLabel: {
-        marginTop: 2
-    },
-    starsView: {
-        flexDirection: "row",
-        marginTop: 3
-    },
-    starsImage: {
-        height: 16,
-        width: 16
-    },
-    reviewLabel: {
-        marginBottom: 22
-    },
-    responseLabel: {
-        marginBottom: 22
-    }
-});
+const ReviewView = styled.View`
+    flex: 1;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 20px;
+`;
+
+const JoberView = styled.View`
+    flex: 1;
+    flex-direction: "row";
+    margin-bottom: 10;
+`;
+
+const JoberImage = styled.Image`
+    height: 48px;
+    width: 48px;
+    border-radius: 24px;
+    margin-right: 12px;
+    background-color: ${lineColor};
+`;
+
+const JoberLabel = styled.Text`
+    margin-top: 2px;
+`;
+
+const StarsView = styled.View`
+    flex-direction: "row";
+    margin-top: 3px;
+`;
+
+const StarsImage = styled.Image`
+    height: 16px;
+    width: 16px;
+`;
+
+const ReviewLabel = styled.Text`
+    margin-bottom: 22px;
+`;
 
 const JobCloseCell = props => {
     const review = props.review;
     const joberImage = review.jober.get("Thumbnail");
-    const emptyStar = require("../../../../assets/images/common/starEmptySmall.png");
-    const fillStar = require("../../../../assets/images/common/starFillSmall.png");
+    const emptyStar = require("../../../assets/images/common/starEmpty.png");
+    const fillStar = require("../../../assets/images/common/starFill.png");
 
     return (
         <JobCell job={review.job}>
-            <View style={styles.reviewView}>
-                <View style={styles.joberView}>
-                    <Image
-                        style={styles.joberImage}
+            <ReviewView>
+                <JoberView>
+                    <JoberImage
                         source={
                             joberImage
                                 ? { uri: joberImage.url() }
-                                : require("../../../../assets/images/common/joberDefault.png")
+                                : require("../../../assets/images/common/joberDefault.png")
                         }
                     />
                     <View>
-                        <Text
-                            style={styles.joberLabel}
-                            type="semibold"
-                            fontSize={16}
-                        >
+                        <JoberLabel type="semibold" fontSize={16}>
                             {review.jober.get("Name")}
-                        </Text>
-                        <View style={styles.starsView}>
-                            <Image
-                                style={styles.starsImage}
+                        </JoberLabel>
+                        <StarsView>
+                            <StarsImage
                                 source={review.stars > 0 ? fillStar : emptyStar}
                             />
-                            <Image
-                                style={styles.starsImage}
+                            <StarsImage
                                 source={review.stars > 1 ? fillStar : emptyStar}
                             />
-                            <Image
-                                style={styles.starsImage}
+                            <StarsImage
                                 source={review.stars > 2 ? fillStar : emptyStar}
                             />
-                            <Image
-                                style={styles.starsImage}
+                            <StarsImage
                                 source={review.stars > 3 ? fillStar : emptyStar}
                             />
-                            <Image
-                                style={styles.starsImage}
+                            <StarsImage
                                 source={review.stars > 4 ? fillStar : emptyStar}
                             />
-                        </View>
+                        </StarsView>
                     </View>
-                </View>
-                <Text style={styles.reviewLabel}>{props.review.text}</Text>
+                </JoberView>
+                <ReviewLabel>{props.review.text}</ReviewLabel>
                 {review.response && (
                     <View>
                         <Text
@@ -104,12 +96,10 @@ const JobCloseCell = props => {
                         >
                             Respuesta del Jober
                         </Text>
-                        <Text style={styles.responseLabel}>
-                            {review.response}
-                        </Text>
+                        <ReviewLabel>{review.response}</ReviewLabel>
                     </View>
                 )}
-            </View>
+            </ReviewView>
         </JobCell>
     );
 };

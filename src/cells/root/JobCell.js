@@ -1,38 +1,34 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 import CustomText from "../../CustomText";
 
 import { lineColor, whiteColor } from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#F8F7F6"
-    },
-    listItemView: {
-        backgroundColor: "#F8F7F6"
-    },
-    cellView: {
-        flex: 1,
-        marginTop: 12,
-        marginBottom: 12,
-        marginRight: 8,
-        marginLeft: 8,
-        borderRadius: 4,
-        borderWidth: 1,
-        borderColor: lineColor,
-        backgroundColor: whiteColor
-    },
-    titleView: {
-        marginLeft: 16,
-        marginRight: 16,
-        paddingTop: 16,
-        paddingBottom: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: lineColor
-    }
-});
+const ListItemView = styled.View`
+    background-color: "#F8F7F6";
+`;
+
+const CellButton = styled.TouchableOpacity`
+    flex: 1;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 8px;
+    margin-left: 8px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: ${lineColor};
+    background-color: ${whiteColor};
+`;
+
+const TitleView = styled.View`
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom-width: 1px;
+    border-bottom-color: ${lineColor};
+`;
 
 const JobCloseCell = props => {
     const job = props.job;
@@ -42,13 +38,12 @@ const JobCloseCell = props => {
     };
 
     return (
-        <View style={styles.listItemView}>
-            <TouchableOpacity
-                style={styles.cellView}
+        <ListItemView>
+            <CellButton
                 onPress={goToJobDetail}
                 disabled={!props.goToJobDetail}
             >
-                <View style={styles.titleView}>
+                <TitleView>
                     <CustomText
                         type="semibold"
                         fontSize={13}
@@ -60,10 +55,10 @@ const JobCloseCell = props => {
                     <CustomText type="bold" fontSize={20} numberOfLines={1}>
                         {job.get("Title")}
                     </CustomText>
-                </View>
+                </TitleView>
                 {props.children}
-            </TouchableOpacity>
-        </View>
+            </CellButton>
+        </ListItemView>
     );
 };
 

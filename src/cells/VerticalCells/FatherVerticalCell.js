@@ -1,49 +1,44 @@
 import React from "react";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 import CustomText from "../../CustomText";
 
 import { lineColor, whiteColor } from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    container: {
-        width: 125,
-        height: 144,
-        borderWidth: 1,
-        borderColor: lineColor,
-        borderRadius: 4,
-        marginLeft: 6,
-        marginRight: 6,
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 8,
-        backgroundColor: whiteColor
-    },
-    iconImage: {
-        height: 48,
-        width: 48,
-        resizeMode: "contain",
-        marginBottom: 12
-    }
-});
+const CellButton = styled.TouchableOpacity`
+    width: 125px;
+    height: 144px;
+    border-width: 1px;
+    border-color: ${lineColor};
+    border-radius: 4px;
+    margin-left: 6px;
+    margin-right: 6px;
+    align-items: "center";
+    justify-content: "center";
+    padding: 8px;
+    background-color: ${whiteColor};
+`;
+
+const IconImage = styled.Image`
+    height: 48px;
+    width: 48px;
+    margin-bottom: 12px;
+`;
 
 const FatherVerticalCell = props => {
     const vertical = props.vertical;
     const icon = vertical.get("Icon");
 
     return (
-        <TouchableOpacity
-            style={styles.container}
-            onPress={() => props.verticalSelected(vertical)}
-        >
-            <Image
-                style={styles.iconImage}
+        <CellButton onPress={() => props.verticalSelected(vertical)}>
+            <IconImage
+                resizeMode="contain"
                 source={{ uri: icon ? icon.url() : null }}
             />
             <CustomText type="semibold" numberOfLines={1}>
                 {vertical.get("Type")}
             </CustomText>
-        </TouchableOpacity>
+        </CellButton>
     );
 };
 

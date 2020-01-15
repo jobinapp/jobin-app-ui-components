@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "main": "dist/prod.js",
   "scripts": {
+    "prepare": "npm run release",
+    "release": "npm run build:dev && npm run build:prod",
+    "build:prod": "NODE_ENV=production rollup -c",
+    "build:dev": "NODE_ENV=development rollup -c",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook -c storybook -o docs",
-    "svgr": "svgr -d src/icons/ assets/",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -34,7 +37,15 @@
     "@storybook/addons": "^5.3.1",
     "@storybook/react-native": "^5.3.1",
     "@storybook/react-native-server": "^5.3.1",
-    "@svgr/cli": "^4.3.3"
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-url": "^2.1.0"
   },
   "jest": {
     "preset": "react-native"

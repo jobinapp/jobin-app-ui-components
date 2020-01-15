@@ -1,7 +1,6 @@
 import React from "react";
 import { Platform } from "react-native";
 import styled from "styled-components";
-import { Header } from "react-navigation-stack";
 import LottieView from "lottie-react-native";
 
 import CustomText from "../CustomText";
@@ -43,7 +42,6 @@ const SaveButton = props => {
     return (
         <KeyboardAvoidingViewStyled
             behavior={Platform.OS === "android" ? null : "padding"}
-            keyboardVerticalOffset={Header.HEIGHT}
             enabled={!disableKeyboard}
         >
             <SafeAreaViewStyled>
@@ -54,7 +52,7 @@ const SaveButton = props => {
                     {props.loading ? (
                         <LottieView
                             style={{ height: 24 }}
-                            source={require("../../../assets/animations/loadingButton.json")}
+                            source={require("../../assets/animations/loadingButton.json")}
                             autoPlay
                             loop
                         />

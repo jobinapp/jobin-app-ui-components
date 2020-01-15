@@ -14,7 +14,6 @@ const ButtonStyled = styled.TouchableOpacity`
 `;
 
 const Button = props => {
-
     return (
         <ButtonStyled
             style={props.style}

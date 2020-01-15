@@ -1,22 +1,15 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import styled from "styled-components";
 import Modal from "react-native-modal";
 
 import { whiteColor } from "../../constants/color";
 
-const styles = StyleSheet.create({
-    modal: {
-        justifyContent: "center",
-        alignItems: "center",
-        margin: 0
-    },
-    container: {
-        width: 94 + "%",
-        backgroundColor: whiteColor,
-        borderRadius: 4,
-        overflow: "hidden"
-    }
-});
+const Container = styled.View`
+    width: 94%;
+    background-color: ${whiteColor};
+    border-radius: 4px;
+    overflow: "hidden";
+`;
 
 const CenterModal = props => {
     const backdropColor = props.backdropColor ? props.backdropColor : "black";
@@ -24,14 +17,18 @@ const CenterModal = props => {
 
     return (
         <Modal
-            style={styles.modal}
+            style={{
+                justifyContent: "center",
+                alignItems: "center",
+                margin: 0
+            }}
             isVisible={props.isVisible}
             onBackdropPress={props.onBackdropPress}
             onModalHide={props.onModalHide}
             backdropColor={backdropColor}
             backdropOpacity={backdropOpacity}
         >
-            <View style={styles.container}>{props.children}</View>
+            <Container>{props.children}</Container>
         </Modal>
     );
 };

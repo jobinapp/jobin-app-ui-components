@@ -5,14 +5,8 @@ import React, {
     forwardRef,
     useImperativeHandle
 } from "react";
-import {
-    StyleSheet,
-    View,
-    Image,
-    TextInput,
-    TouchableOpacity,
-    Animated
-} from "react-native";
+import { Animated } from "react-native";
+import styled from "styled-components";
 
 import {
     whiteColor,
@@ -21,66 +15,67 @@ import {
     greenJobinColor,
     deactivatedGrayColor
 } from "../constants/color";
-import {mainSemibold} from "../constants/fonts"
+import { mainSemibold } from "../constants/fonts";
 
 import CustomText from "./CustomText";
 
-const SearchBar = forwardRef((props, ref) => {
+const BackgroundView = styled.View`
+    flex-direction: "row";
+    align-items: "center";
+    background-color: ${whiteColor};
+`;
 
+const SearchView = styled.View.attrs(props => ({
+    shadowColor: "rgb(29, 27, 26)",
+    shadowOffset: {
+        width: 0,
+        height: 4
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4
+}))`
+    flex: 1;
+    flex-direction: "row";
+    height: 48px;
+    background-color: ${whiteColor};
+    border-radius: 4px;
+    align-items: "center";
+    border-color: rgba(29, 27, 26, 0.16);
+    border-width: 1px;
+`;
+
+const SearchImage = styled.Image.attrs(props => ({
+    resizeMode: "cover",
+    tintColor: deactivatedGrayColor
+}))`
+    height: 16px;
+    width: 16px;
+    margin-left: 12px;
+    margin-right: 8px;
+`;
+
+const SearchInput = styled.TextInput`
+    flex: 1;
+    margin-right: 12px;
+    color: ${softblackColor};
+    font-size: 15px;
+    font-family: ${mainSemibold};
+`;
+
+const CancelButton = styled.TouchableOpacity`
+    align-items: "center";
+    justify-content: "center";
+    margin-left: 8px;
+    height: 40px;
+`;
+
+const SearchBar = forwardRef((props, ref) => {
     const [searchText, setSearchText] = useState(null);
     const [showCancel, setShowCancel] = useState(false);
     const [timer, setTimer] = useState(0);
     const [expanded, setExpanded] = useState(false);
     const animation = new Animated.Value(0);
     const inputRef = useRef();
-
-    const styles = StyleSheet.create({
-        backgroundView: {
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: whiteColor,
-            ...props.backgroundStyle
-        },
-        searchView: {
-            flex: 1,
-            flexDirection: "row",
-            height: 48,
-            backgroundColor: whiteColor,
-            borderRadius: 4,
-            alignItems: "center",
-            borderColor: 'rgba(29, 27, 26, 0.16)',
-            borderWidth: 1,
-            shadowColor: "rgb(29, 27, 26)",
-            shadowOffset: {
-                width: 0,
-                height: 4,
-            },
-            shadowOpacity: 0.10,
-            shadowRadius: 4,
-            ...props.barStyle
-        },
-        searchImage: {
-            height: 16,
-            width: 16,
-            marginLeft: 12,
-            marginRight: 8,
-            resizeMode: "cover",
-            tintColor: deactivatedGrayColor
-        },
-        searchInput: {
-            flex: 1,
-            marginRight: 12,
-            color: softblackColor,
-            fontSize: 15,
-            fontFamily: mainSemibold
-        },
-        cancelButton: {
-            alignItems: "center",
-            justifyContent: "center",
-            marginLeft: 8,
-            height: 40
-        }
-    });
 
     // The component instance will be extended
     // with whatever you return from the callback passed
@@ -152,15 +147,13 @@ const SearchBar = forwardRef((props, ref) => {
     }, []);
 
     return (
-        <View style={styles.backgroundView}>
-            <View style={styles.searchView}>
-                <Image
-                    style={styles.searchImage}
+        <BackgroundView>
+            <SearchView>
+                <SearchImage
                     source={require("../../assets/images/common/searchIcon.png")}
                 />
-                <TextInput
+                <SearchInput
                     ref={inputRef}
-                    style={styles.searchInput}
                     value={searchText}
                     placeholder={
                         props.placeholder ? props.placeholder : "Buscar"
@@ -174,18 +167,15 @@ const SearchBar = forwardRef((props, ref) => {
                     selectionColor={redJobinColor}
                     autoCorrect={false}
                 />
-            </View>
+            </SearchView>
             <Animated.View style={{ width: animation }}>
-                <TouchableOpacity
-                    style={styles.cancelButton}
-                    onPress={cancelAction}
-                >
+                <CancelButton onPress={cancelAction}>
                     <CustomText type="semibold" textColor={greenJobinColor}>
                         Cancelar
                     </CustomText>
-                </TouchableOpacity>
+                </CancelButton>
             </Animated.View>
-        </View>
+        </BackgroundView>
     );
 });
 export default SearchBar;

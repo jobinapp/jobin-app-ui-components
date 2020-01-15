@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import styled from "styled-components";
 
 import JobCell from "../root/JobCell";
 import JoberCell from "../JoberCell";
@@ -7,12 +7,10 @@ import CustomText from "../../CustomText";
 
 import { deactivatedGrayColor } from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    priceView: {
-        marginLeft: 76,
-        marginBottom: 20
-    }
-});
+const PriceView = styled.View`
+    margin-left: 76px;
+    margin-bottom: 20px;
+`;
 
 const JobTransportCell = props => {
     const job = props.job;
@@ -32,14 +30,14 @@ const JobTransportCell = props => {
                 jober={job.jobersArray[0]}
                 goToJoberProfile={goToJoberProfile}
             />
-            <View style={styles.priceView}>
+            <PriceView>
                 <CustomText textColor={deactivatedGrayColor} fontSize={14}>
                     Precio del transporte
                 </CustomText>
                 <CustomText type="semibold" fontSize={18}>
                     {Number((price * 1.21).toFixed(0)) + "€"}
                 </CustomText>
-            </View>
+            </PriceView>
         </JobCell>
     );
 };

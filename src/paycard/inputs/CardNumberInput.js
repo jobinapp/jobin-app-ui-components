@@ -32,7 +32,7 @@ const CardInput = styled.TextInput`
 const CardNumberInput = props => {
     // this brand should be working for something
     const [brand, setBrand] = useState(
-        require("../../../../assets/images/settings/addPaymentMethod/defaultCard.png")
+        require("../../../assets/images/settings/addPaymentMethod/defaultCard.png")
     );
     const [cardNumber, setCardNumber] = useState(null);
     const cardNumberInputRef = useRef();
@@ -41,15 +41,15 @@ const CardNumberInput = props => {
         // check card type
         if (text.substring(0, 1) === 4) {
             setBrand(
-                require("../../../../assets/images/settings/addPaymentMethod/visaCard.png")
+                require("../../../assets/images/settings/addPaymentMethod/visaCard.png")
             );
         } else if (text.substring(0, 1) === 5) {
             setBrand(
-                require("../../../../assets/images/settings/addPaymentMethod/mastercardCard.png")
+                require("../../../assets/images/settings/addPaymentMethod/mastercardCard.png")
             );
         } else {
             setBrand(
-                require("../../../../assets/images/settings/addPaymentMethod/defaultCard.png")
+                require("../../../assets/images/settings/addPaymentMethod/defaultCard.png")
             );
         }
 

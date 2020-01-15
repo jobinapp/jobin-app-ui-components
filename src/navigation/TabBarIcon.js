@@ -16,15 +16,15 @@ const TabBarIcon = props => {
 
     let iconSource;
     if (props.routeName === "HomeView")
-        iconSource = require("../../../assets/images/tabbar/homeTabBar.png");
+        iconSource = require("../../assets/images/tabbar/homeTabBar.png");
     else if (props.routeName === "MyTasksView")
-        iconSource = require("../../../assets/images/tabbar/tasksTabBar.png");
+        iconSource = require("../../assets/images/tabbar/tasksTabBar.png");
     else if (props.routeName === "MagazineView")
-        iconSource = require("../../../assets/images/tabbar/magazineTabBar.png");
+        iconSource = require("../../assets/images/tabbar/magazineTabBar.png");
     else if (props.routeName === "ChatListView")
-        iconSource = require("../../../assets/images/tabbar/chatTabBar.png");
+        iconSource = require("../../assets/images/tabbar/chatTabBar.png");
     else if (props.routeName === "SettingsView")
-        iconSource = require("../../../assets/images/tabbar/profileTabBar.png");
+        iconSource = require("../../assets/images/tabbar/profileTabBar.png");
 
     return (
         <View>

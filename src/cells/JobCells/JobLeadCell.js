@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 import JobCell from "../root/JobCell";
 import JoberCell from "../JoberCell";
@@ -7,30 +7,23 @@ import CustomText from "../../CustomText";
 
 import { lineColor, softblackColor } from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    buttonsView: {
-        flex: 1,
-        flexDirection: "row",
-        height: 56,
-        marginLeft: 16,
-        marginRight: 16,
-        marginTop: 8,
-        borderTopWidth: 1,
-        borderTopColor: lineColor
-    },
-    button: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    imageButton: {
-        height: 22,
-        width: 22,
-        marginRight: 6,
-        tintColor: softblackColor
-    }
-});
+const ButtonsView = styled.View`
+    flex: 1;
+    flex-direction: "row";
+    height: 56px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 8px;
+    border-top-width: 1px;
+    border-top-color: ${lineColor};
+`;
+
+const Button = styled.TouchableOpacity`
+    flex: 1;
+    flex-direction: "row";
+    justify-content: "center";
+    align-items: "center";
+`;
 
 const JobLeadCell = props => {
     const job = props.job;
@@ -69,38 +62,47 @@ const JobLeadCell = props => {
                 jober={job.jobersArray[2]}
                 goToJoberProfile={goToJoberProfile}
             />
-            <View style={styles.buttonsView}>
-                <TouchableOpacity style={styles.button} onPress={goToPayment}>
+            <ButtonsView>
+                <Button onPress={goToPayment}>
                     <Image
+                        source={require("../../../assets/card-settings.svg")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
                         resizeMode="contain"
-                        style={styles.imageButton}
-                        source={require("../../../../assets/images/settings/cardSettings.png")}
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Pagar
                     </CustomText>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={goToReview}>
+                </Button>
+                <Button onPress={goToReview}>
                     <Image
+                        source={require("../../../assets/star-empty.svg")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
                         resizeMode="contain"
-                        style={styles.imageButton}
-                        source={require("../../../../assets/images/common/starEmpty.png")}
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Valorar
                     </CustomText>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={goToDelete}>
+                </Button>
+                <Button onPress={goToDelete}>
                     <Image
+                        source={require("../../../assets/trash-red.svg")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
                         resizeMode="contain"
-                        style={styles.imageButton}
-                        source={require("../../../../assets/images/common/trashRed.png")}
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Eliminar
                     </CustomText>
-                </TouchableOpacity>
-            </View>
+                </Button>
+            </ButtonsView>
         </JobCell>
     );
 };

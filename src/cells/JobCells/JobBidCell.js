@@ -42,15 +42,6 @@ const ButtonDelete = styled.TouchableOpacity`
     align-items: "center";
 `;
 
-const ImageButton = styled.Image.attrs({
-    tintColor: softblackColor,
-    resizeMode: "contain"
-})`
-    height: 22px;
-    width: 22px;
-    margin-right: 6px;
-`;
-
 const JobBidCell = props => {
     const job = props.job;
     const state = job.object.get("State");
@@ -96,8 +87,13 @@ const JobBidCell = props => {
                     state={state}
                     onPress={goToPayment}
                 >
-                    <ImageButton
-                        source={require("../../../../assets/images/settings/cardSettings.png")}
+                    <Image
+                        source={require("../../../assets/images/settings/cardSettings.png")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
+                        resizeMode="contain"
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Pagar
@@ -108,16 +104,26 @@ const JobBidCell = props => {
                     state={state}
                     onPress={goToReview}
                 >
-                    <ImageButton
-                        source={require("../../../../assets/images/common/starEmpty.png")}
+                    <Image
+                        source={require("../../../assets/images/common/starEmpty.png")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
+                        resizeMode="contain"
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Valorar
                     </CustomText>
                 </Button>
                 <ButtonDelete onPress={goToDelete}>
-                    <ImageButton
-                        source={require("../../../../assets/images/common/trashRed.png")}
+                    <Image
+                        source={require("../../../assets/images/common/trashRed.png")}
+                        height={22}
+                        width={22}
+                        style={{ marginRight: 6 }}
+                        tintColor={softblackColor}
+                        resizeMode="contain"
                     />
                     <CustomText type="semibold" fontSize={14}>
                         Eliminar

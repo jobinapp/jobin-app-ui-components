@@ -1,36 +1,33 @@
 import React from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { ActivityIndicator } from "react-native";
 import Modal from "react-native-modal";
 
 import { whiteColor } from "../../constants/color";
 
-const styles = StyleSheet.create({
-    modal: {
-        justifyContent: "center",
-        alignItems: "center",
-        margin: 0
-    },
-    container: {
-        width: 56,
-        height: 56,
-        backgroundColor: whiteColor,
-        borderRadius: 4,
-        overflow: "hidden",
-        justifyContent: "center",
-        alignItems: "center"
-    }
-});
+const Container = styled.View`
+    width: 56px;
+    height: 56px;
+    background-color: ${whiteColor};
+    border-radius: 4px;
+    overflow: "hidden";
+    justify-content: "center";
+    align-items: "center";
+`;
 
 const LoadingModal = props => {
     return (
         <Modal
-            style={styles.modal}
+            style={{
+                justifyContent: "center",
+                alignItems: "center",
+                margin: 0
+            }}
             isVisible={props.isVisible}
             onBackdropPress={props.closeAction}
         >
-            <View style={styles.container}>
+            <Container>
                 <ActivityIndicator />
-            </View>
+            </Container>
         </Modal>
     );
 };

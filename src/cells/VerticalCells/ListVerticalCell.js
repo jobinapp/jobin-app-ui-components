@@ -1,21 +1,21 @@
 import React from "react";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 import CustomText from "../../CustomText";
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        marginLeft: 24,
-        marginRight: 24,
-        alignItems: "center"
-    },
-    iconImage: {
-        height: 32,
-        width: 32,
-        marginRight: 16
-    }
-});
+const CellButton = styled.TouchableOpacity`
+    flex-direction: "row";
+    margin-left: 24px;
+    margin-right: 24px;
+    align-items: "center";
+    margin-top: ${props => (props.image ? "16px" : "0")};
+`;
+
+const ImageIcon = styled.Image`
+    height: 32px;
+    width: 32px;
+    margin-right: 16px;
+`;
 
 const ListVerticalCell = props => {
     const vertical = props.vertical;
@@ -24,11 +24,11 @@ const ListVerticalCell = props => {
     if (!father) {
         const icon = vertical.get("Icon");
         return (
-            <TouchableOpacity
-                style={[styles.container, { marginTop: 16 }]}
+            <CellButton
                 onPress={() => props.verticalSelected(vertical)}
+                image={true}
             >
-                <Image style={styles.iconImage} source={{ uri: icon.url() }} />
+                <ImageIcon source={{ uri: icon.url() }} />
                 <CustomText
                     numberOfLines={1}
                     style={{ marginBottom: 12, marginTop: 12 }}
@@ -37,21 +37,18 @@ const ListVerticalCell = props => {
                 >
                     {vertical.get("Type")}
                 </CustomText>
-            </TouchableOpacity>
+            </CellButton>
         );
     } else {
         return (
-            <TouchableOpacity
-                style={styles.container}
-                onPress={() => props.verticalSelected(vertical)}
-            >
+            <CellButton onPress={() => props.verticalSelected(vertical)}>
                 <CustomText
                     numberOfLines={2}
                     style={{ marginBottom: 8, marginTop: 8 }}
                 >
                     {vertical.get("Type")}
                 </CustomText>
-            </TouchableOpacity>
+            </CellButton>
         );
     }
 };

@@ -1,26 +1,27 @@
 import React from "react";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import styled from "styled-components";
 
 import CustomText from "../../CustomText";
 
-import { deactivatedGrayColor, backgroundGrayColor } from "../../../constants/color";
+import {
+    deactivatedGrayColor,
+    backgroundGrayColor
+} from "../../../constants/color";
 
-const styles = StyleSheet.create({
-    container: {
-        width: 150,
-        height: 185,
-        marginLeft: 6,
-        marginRight: 6
-    },
-    image: {
-        height: 100,
-        width: 150,
-        resizeMode: "contain",
-        marginBottom: 12,
-        backgroundColor: backgroundGrayColor,
-        borderRadius: 4
-    }
-});
+const CellButton = styled.TouchableOpacity`
+    width: 150px;
+    height: 185px;
+    margin-left: 6px;
+    margin-right: 6px;
+`;
+
+const ImageIcon = styled.Image`
+    height: 100px;
+    width: 150px;
+    margin-bottom: 12px;
+    background-color: ${backgroundGrayColor};
+    border-radius: 4px;
+`;
 
 const FixedVerticalCell = props => {
     // TODO: Obtener precio por localizacion
@@ -29,11 +30,8 @@ const FixedVerticalCell = props => {
     const totalPrice = price * 1.21;
 
     return (
-        <TouchableOpacity
-            style={styles.container}
-            onPress={() => props.verticalSelected(vertical)}
-        >
-            <Image style={styles.image} />
+        <CellButton onPress={() => props.verticalSelected(vertical)}>
+            <ImageIcon resizeMode="contain" />
             <CustomText
                 type="semibold"
                 numberOfLines={2}
@@ -48,7 +46,7 @@ const FixedVerticalCell = props => {
             >
                 {"Desde " + Number(totalPrice.toFixed(0)) + " €"}
             </CustomText>
-        </TouchableOpacity>
+        </CellButton>
     );
 };
 
