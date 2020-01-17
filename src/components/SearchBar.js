@@ -71,10 +71,8 @@ const CancelButton = styled.TouchableOpacity`
 
 const SearchBar = forwardRef((props, ref) => {
     const [searchText, setSearchText] = useState(null);
-    const [showCancel, setShowCancel] = useState(false);
     const [timer, setTimer] = useState(0);
-    const [expanded, setExpanded] = useState(false);
-    const animation = new Animated.Value(0);
+    const width = new Animated.Value(0);
     const inputRef = useRef();
 
     // The component instance will be extended
@@ -87,8 +85,6 @@ const SearchBar = forwardRef((props, ref) => {
                 toValue: 0,
                 duration: 200
             }).start();
-            setExpanded(false);
-            setShowCancel(false);
             setSearchText(null);
         },
 
@@ -108,35 +104,27 @@ const SearchBar = forwardRef((props, ref) => {
         );
     };
 
-    const cancelAction = () => {
-        if ("cancelAction" in props) props.cancelAction();
-        toggle();
-        setSearchText(null);
-        inputRef.current.blur();
-    };
-
     const search = () => {
         props.search(searchText);
     };
 
     const onFocus = () => {
-        if ("onFocus" in props) props.onFocus();
-        toggle();
+        Animated.timing(width, {
+            toValue: 80,
+            duration: 200
+        }).start(() => {
+            if ("onFocus" in props) props.onFocus();
+        });
     };
 
     const onBlur = () => {
-        if ("onBlur" in props) props.onBlur();
-        inputRef.current.clear();
-    };
-
-    // ANIMATION METHODS
-    const toggle = () => {
-        Animated.timing(animation, {
-            toValue: expanded ? 0 : 80,
+        Animated.timing(width, {
+            toValue: 0,
             duration: 200
-        }).start();
-        setExpanded(!expanded);
-        setShowCancel(!showCancel);
+        }).start(() =>{
+            inputRef.current.clear();
+            if ("onBlur" in props) props.onBlur();
+        });
     };
 
     useEffect(() => {

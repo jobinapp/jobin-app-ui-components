@@ -11,6 +11,7 @@ import FatherVerticalCell from "./src/components/cells/VerticalCells/FatherVerti
 import FixedVerticalCell from "./src/components/cells/VerticalCells/FixedVerticalCell";
 import ListVerticalCell from "./src/components/cells/VerticalCells/ListVerticalCell";
 import JoberCell from "./src/components/cells/JoberCell";
+import SearchCell from "./src/components/cells/SearchCell";
 import BottomModal from "./src/components/modals/BottomModal";
 import CenterModal from "./src/components/modals/CenterModal";
 import LoadingModal from "./src/components/modals/LoadingModal";
@@ -24,6 +25,7 @@ import CvcCardInput from "./src/components/paycard/inputs/CvcCardInput";
 import AddPayCardForm from "./src/components/paycard/AddPayCardForm";
 import Counter from "./src/components/Counter";
 import CustomText from "./src/components/CustomText";
+import Input from "./src/components/Input";
 import ProgressBar from "./src/components/ProgressBar";
 import RadioButton from "./src/components/RadioButton";
 import SearchBar from "./src/components/SearchBar";
@@ -70,6 +72,7 @@ export {
     FixedVerticalCell,
     ListVerticalCell,
     JoberCell,
+    SearchCell,
     BottomModal,
     CenterModal,
     LoadingModal,
@@ -83,6 +86,7 @@ export {
     AddPayCardForm,
     Counter,
     CustomText,
+    Input,
     ProgressBar,
     RadioButton,
     SearchBar,
