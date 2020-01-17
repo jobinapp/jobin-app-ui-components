@@ -13,8 +13,8 @@ const CellButton = styled.TouchableOpacity`
     border-radius: 4px;
     margin-left: 6px;
     margin-right: 6px;
-    align-items: "center";
-    justify-content: "center";
+    align-items: center;
+    justify-content: center;
     padding: 8px;
     background-color: ${whiteColor};
 `;

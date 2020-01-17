@@ -8,7 +8,7 @@ const Container = styled.View`
     width: 94%;
     background-color: ${whiteColor};
     border-radius: 4px;
-    overflow: "hidden";
+    overflow: hidden;
 `;
 
 const CenterModal = props => {

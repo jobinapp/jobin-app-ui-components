@@ -10,9 +10,9 @@ const Container = styled.View`
     height: 56px;
     background-color: ${whiteColor};
     border-radius: 4px;
-    overflow: "hidden";
-    justify-content: "center";
-    align-items: "center";
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 `;
 
 const LoadingModal = props => {

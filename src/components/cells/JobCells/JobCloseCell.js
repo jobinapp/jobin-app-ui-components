@@ -16,7 +16,7 @@ const ReviewView = styled.View`
 
 const JoberView = styled.View`
     flex: 1;
-    flex-direction: "row";
+    flex-direction: row;
     margin-bottom: 10;
 `;
 
@@ -33,7 +33,7 @@ const JoberLabel = styled.Text`
 `;
 
 const StarsView = styled.View`
-    flex-direction: "row";
+    flex-direction: row;
     margin-top: 3px;
 `;
 

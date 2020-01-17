@@ -4,10 +4,10 @@ import styled from "styled-components";
 import CustomText from "../../CustomText";
 
 const CellButton = styled.TouchableOpacity`
-    flex-direction: "row";
+    flex-direction: row;
     margin-left: 24px;
     margin-right: 24px;
-    align-items: "center";
+    align-items: center;
     margin-top: ${props => (props.image ? "16px" : "0")};
 `;
 

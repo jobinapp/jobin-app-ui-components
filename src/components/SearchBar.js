@@ -20,8 +20,8 @@ import { mainSemibold } from "../constants/fonts";
 import CustomText from "./CustomText";
 
 const BackgroundView = styled.View`
-    flex-direction: "row";
-    align-items: "center";
+    flex-direction: row;
+    align-items: center;
     background-color: ${whiteColor};
 `;
 
@@ -35,11 +35,11 @@ const SearchView = styled.View.attrs(props => ({
     shadowRadius: 4
 }))`
     flex: 1;
-    flex-direction: "row";
+    flex-direction: row;
     height: 48px;
     background-color: ${whiteColor};
     border-radius: 4px;
-    align-items: "center";
+    align-items: center;
     border-color: rgba(29, 27, 26, 0.16);
     border-width: 1px;
 `;
@@ -63,8 +63,8 @@ const SearchInput = styled.TextInput`
 `;
 
 const CancelButton = styled.TouchableOpacity`
-    align-items: "center";
-    justify-content: "center";
+    align-items: center;
+    justify-content: center;
     margin-left: 8px;
     height: 40px;
 `;

@@ -9,7 +9,7 @@ import { lineColor, softblackColor } from "../../../constants/color";
 
 const ButtonsView = styled.View`
     flex: 1;
-    flex-direction: "row";
+    flex-direction: row;
     height: 56px;
     margin-left: 16px;
     margin-right: 16px;
@@ -20,9 +20,9 @@ const ButtonsView = styled.View`
 
 const Button = styled.TouchableOpacity`
     flex: 1;
-    flex-direction: "row";
-    justify-content: "center";
-    align-items: "center";
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 `;
 
 const JobLeadCell = props => {

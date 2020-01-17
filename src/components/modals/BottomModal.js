@@ -5,12 +5,12 @@ import Modal from "react-native-modal";
 import { whiteColor } from "../../constants/color";
 
 const Container = styled.View`
-    width: "100%";
+    width: 100%;
     margin-top: 48px;
     background-color: ${whiteColor};
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    overflow: "hidden";
+    overflow: hidden;
 `;
 
 const BottomModal = props => {

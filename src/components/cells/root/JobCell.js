@@ -6,7 +6,7 @@ import CustomText from "../../CustomText";
 import { lineColor, whiteColor } from "../../../constants/color";
 
 const ListItemView = styled.View`
-    background-color: "#F8F7F6";
+    background-color: #F8F7F6;
 `;
 
 const CellButton = styled.TouchableOpacity`

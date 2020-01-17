@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import styled from "styled-components";
 
 import CustomText from "../CustomText";
@@ -13,19 +13,9 @@ import {
     deactivatedGrayColor
 } from "../../constants/color";
 
-const styles = StyleSheet.create({
-    medalView: {
-        height: 24,
-        width: 24,
-        right: 24,
-        top: 24,
-        position: "absolute"
-    }
-});
-
 const JoberCellButton = styled.TouchableOpacity`
     flex: 1;
-    flex-direction: "row";
+    flex-direction: row;
     margin-right: 16px;
     margin-left: 16px;
     padding-top: 12px;
@@ -34,7 +24,7 @@ const JoberCellButton = styled.TouchableOpacity`
 
 const JoberCellView = styled.View`
     flex: 1;
-    flex-direction: "row";
+    flex-direction: row;
     margin-right: 16px;
     margin-left: 16px;
     padding-top: 12px;
@@ -57,7 +47,7 @@ const JoberBadge = styled.Image`
 `;
 
 const StarsView = styled.View`
-    flex-direction: "row";
+    flex-direction: row;
     margin-top: 2px;
 `;
 
@@ -72,7 +62,7 @@ const StarsImage = styled.Image`
 const ArrowImage = styled.Image`
     width: 24px;
     height: 24px;
-    position: "absolute";
+    position: absolute;
     right: 0;
     margin-top: 24px;
 `;
@@ -81,8 +71,8 @@ const NewLabelView = styled.View`
     width: 59px;
     height: 21px;
     border-radius: 4px;
-    justify-content: "center";
-    align-items: "center";
+    justify-content: center;
+    align-items: center;
     background-color: ${greenJobinColor};
     margin-top: 3px;
 `;
@@ -92,7 +82,7 @@ const MedalView = styled.View`
     width: 24px;
     right: 24px;
     top: 24px;
-    position: "absolute";
+    position: absolute;
 `
 
 const JoberCell = props => {

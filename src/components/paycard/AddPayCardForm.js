@@ -10,7 +10,7 @@ import CvcCardInput from "./inputs/CvcCardInput";
 const RootView = styled.View`
     height: 80px;
     width: 100%;
-    flex-direction: "row";
+    flex-direction: row;
 `;
 
 const TwoInputsView = styled.View`
