@@ -139,7 +139,7 @@ const SearchBar = forwardRef((props, ref) => {
         <BackgroundView>
             <SearchView>
                 <SearchImage
-                    source={require("../../assets/images/common/searchIcon.png")}
+                    source={require("../assets/images/common/searchIcon.png")}
                 />
                 <SearchInput
                     ref={inputRef}
