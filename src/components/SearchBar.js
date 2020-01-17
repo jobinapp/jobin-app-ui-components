@@ -5,8 +5,8 @@ import React, {
     forwardRef,
     useImperativeHandle
 } from "react";
-import { Animated } from "react-native";
 import styled from "styled-components";
+import { Animated } from "react-native";
 
 import {
     whiteColor,
@@ -121,12 +121,13 @@ const SearchBar = forwardRef((props, ref) => {
         Animated.timing(width, {
             toValue: 0,
             duration: 200
-        }).start(() =>{
+        }).start(() => {
             inputRef.current.clear();
             if ("onBlur" in props) props.onBlur();
         });
     };
 
+    // ANIMATION METHODS
     useEffect(() => {
         // unmount
         return () => {
@@ -138,7 +139,7 @@ const SearchBar = forwardRef((props, ref) => {
         <BackgroundView>
             <SearchView>
                 <SearchImage
-                    source={require("../assets/images/common/searchIcon.png")}
+                    source={require("../../assets/images/common/searchIcon.png")}
                 />
                 <SearchInput
                     ref={inputRef}
@@ -146,7 +147,7 @@ const SearchBar = forwardRef((props, ref) => {
                     placeholder={
                         props.placeholder ? props.placeholder : "Buscar"
                     }
-                    placeholderTextColor={"rgba(29, 27, 26, 0.64)"}
+                    placeholderTextColor={deactivatedGrayColor}
                     returnKeyType="search"
                     onSubmitEditing={search}
                     onChangeText={onChangeText}
@@ -157,7 +158,7 @@ const SearchBar = forwardRef((props, ref) => {
                 />
             </SearchView>
             <Animated.View style={{ width: width }}>
-                <CancelButton onPress={cancelAction}>
+                <CancelButton onPress={() => inputRef.current.blur()}>
                     <CustomText type="semibold" textColor={greenJobinColor}>
                         Cancelar
                     </CustomText>
