@@ -81,7 +81,7 @@ const SearchBar = forwardRef((props, ref) => {
     useImperativeHandle(ref, () => ({
         reset: () => {
             inputRef.current.blur();
-            Animated.timing(animation, {
+            Animated.timing(width, {
                 toValue: 0,
                 duration: 200
             }).start();
@@ -156,7 +156,7 @@ const SearchBar = forwardRef((props, ref) => {
                     autoCorrect={false}
                 />
             </SearchView>
-            <Animated.View style={{ width: animation }}>
+            <Animated.View style={{ width: width }}>
                 <CancelButton onPress={cancelAction}>
                     <CustomText type="semibold" textColor={greenJobinColor}>
                         Cancelar
