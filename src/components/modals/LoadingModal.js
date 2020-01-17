@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { ActivityIndicator } from "react-native";
 import Modal from "react-native-modal";
 
