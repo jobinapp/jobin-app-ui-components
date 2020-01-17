@@ -1,9 +1,9 @@
 webpack.config.js
 .babelrc
 package-lock.json
-.storybook/
-src/
+storybook/
 test/
 stories/
 docs/
 node_modules/
+.prettierrc
