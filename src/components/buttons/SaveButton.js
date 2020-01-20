@@ -24,7 +24,7 @@ const KeyboardAvoidingViewStyled = styled.KeyboardAvoidingView`
 `;
 
 const Button = styled.TouchableOpacity`
-    background-color: ${greenJobinColor};
+    background-color: ${props => props.buttonColor ? props.buttonColor : greenJobinColor};
     height: 56px;
     width: 100%;
     align-items: center;
@@ -48,6 +48,8 @@ const SaveButton = props => {
                 <Button
                     onPress={props.onPress}
                     disabled={props.disabled || props.loading}
+                    fullScreen={props.fullScreen}
+                    buttonColor={props.buttonColor}
                 >
                     {props.loading ? (
                         <LottieView
