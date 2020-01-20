@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import CustomText from "./CustomText";
-import { lineColor, deactivatedGrayColor } from "../constants/color";
+import { lineColor, deactivatedGrayColor, redJobinColor } from "../constants/color";
 import { regular } from "../constants/fonts";
 
 const View = styled.View`
     height: 58px;
     border-bottom-width: 1px;
-    border-bottom-color: ${lineColor};
+    border-bottom-color: ${props => props.badInput ? redJobinColor : lineColor};
     ${props => props.style};
 `;
 const TextInput = styled.TextInput`
@@ -18,17 +18,17 @@ const TextInput = styled.TextInput`
 `;
 
 const Input = props => {
-    const { style, ...other } = props;
+    const { style, badInput, onChangeText, ...other } = props;
     const [value, setValue] = useState(null);
 
-    const onChangeText = text => {
+    const onChange = text => {
         if (text.length > 0) setValue(text);
         else setValue(null);
         props.onChangeText ? props.onChangeText(text) : null;
     };
 
     return (
-        <View style={style}>
+        <View style={style} badInput={badInput}>
             <CustomText
                 style={{ marginTop: 13 }}
                 fontSize={12}
@@ -36,7 +36,7 @@ const Input = props => {
             >
                 {props.placeholder && value ? props.placeholder : ""}
             </CustomText>
-            <TextInput onChangeText={text => onChangeText(text)} {...other} />
+            <TextInput onChangeText={onChange} {...other} />
         </View>
     );
 };
