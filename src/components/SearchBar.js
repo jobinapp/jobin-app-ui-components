@@ -23,6 +23,7 @@ const BackgroundView = styled.View`
     flex-direction: row;
     align-items: center;
     background-color: ${whiteColor};
+    ${props => props.style}
 `;
 
 const SearchView = styled.View.attrs(props => ({
@@ -42,6 +43,7 @@ const SearchView = styled.View.attrs(props => ({
     align-items: center;
     border-color: rgba(29, 27, 26, 0.16);
     border-width: 1px;
+    ${props => props.style}
 `;
 
 const SearchImage = styled.Image.attrs(props => ({
@@ -52,6 +54,7 @@ const SearchImage = styled.Image.attrs(props => ({
     width: 16px;
     margin-left: 12px;
     margin-right: 8px;
+    ${props => props.style}
 `;
 
 const SearchInput = styled.TextInput`
@@ -60,6 +63,7 @@ const SearchInput = styled.TextInput`
     color: ${softblackColor};
     font-size: 15px;
     font-family: ${mainSemibold};
+    ${props => props.style}
 `;
 
 const CancelButton = styled.TouchableOpacity`
@@ -67,6 +71,7 @@ const CancelButton = styled.TouchableOpacity`
     justify-content: center;
     margin-left: 8px;
     height: 40px;
+    ${props => props.style}
 `;
 
 const SearchBar = forwardRef((props, ref) => {
