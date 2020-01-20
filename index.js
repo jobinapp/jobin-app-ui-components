@@ -14,6 +14,7 @@ import JoberCell from "./src/components/cells/JoberCell";
 import SearchCell from "./src/components/cells/SearchCell";
 import BottomModal from "./src/components/modals/BottomModal";
 import CenterModal from "./src/components/modals/CenterModal";
+import FullModal from "./src/components/modals/FullModal";
 import LoadingModal from "./src/components/modals/LoadingModal";
 import NavigationSubtitle from "./src/components/navigation/NavigationSubtitle";
 import NavigationTitle from "./src/components/navigation/NavigationTitle";
@@ -75,6 +76,7 @@ export {
     SearchCell,
     BottomModal,
     CenterModal,
+    FullModal,
     LoadingModal,
     NavigationSubtitle,
     NavigationTitle,
