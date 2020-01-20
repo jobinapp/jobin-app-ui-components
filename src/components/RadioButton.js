@@ -34,7 +34,7 @@ const RadioButton = props => {
                 width="24"
                 height="24"
                 style={{ marginLeft: 24 }}
-                uri={
+                source={
                     props.selected
                         ? require("../assets/images/common/buttonSelected.png")
                         : require("../assets/images/common/buttonDeselected.png")
