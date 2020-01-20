@@ -136,7 +136,7 @@ const SearchBar = forwardRef((props, ref) => {
     }, []);
 
     return (
-        <BackgroundView>
+        <BackgroundView style={props.style}>
             <SearchView>
                 <SearchImage
                     source={require("../assets/images/common/searchIcon.png")}
