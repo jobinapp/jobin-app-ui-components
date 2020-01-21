@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import BottomModal from "../components/modals/BottomModal";
 import CustomText from "../components/CustomText";
-import { deactivatedGrayColor } from "../constants/color";
+import { softblackColor, deactivatedGrayColor } from "../constants/color";
 import { marginLeft, marginRight } from "../constants/mainConstants";
 
 const Container = styled.View`
