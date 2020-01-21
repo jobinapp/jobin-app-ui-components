@@ -105,7 +105,7 @@ const Select = props => {
     ];
     const [prefix, setPrefix] = useState(
         prefixArray && prefixArray.length > 0
-            ? prefixArray.filter(item => item.selected)[0].selected
+            ? prefixArray.filter(item => item.selected)[0].prefix
             : ""
     );
     const [value, setValue] = useState(
@@ -139,12 +139,12 @@ const Select = props => {
                 // onPress={props.cameraAction}
                 onPress={() => itemSelected(item)}
             >
-                <ButtonImage source={source} />
+                <ButtonImage source={item.source} />
                 <ButtonText type="semibold" fontSize={17}>
-                    {prefix}
+                    {item.prefix}
                 </ButtonText>
                 <CustomText style={{ marginLeft: 8 }} fontSize={17}>
-                    {value}
+                    {item.value}
                 </CustomText>
             </ButtonView>
         );
