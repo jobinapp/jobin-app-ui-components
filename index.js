@@ -23,7 +23,7 @@ import CardExpiryDateInput from "./src/components/paycard/inputs/CardExpiryDateI
 import CardNameInput from "./src/components/paycard/inputs/CardNameInput";
 import CardNumberInput from "./src/components/paycard/inputs/CardNumberInput";
 import CvcCardInput from "./src/components/paycard/inputs/CvcCardInput";
-import AddPayCardForm from "./src/components/paycard/AddPayCardForm";
+import AddPayCardForm from "./src/components/AddPayCardForm";
 import Counter from "./src/components/Counter";
 import CustomText from "./src/components/CustomText";
 import Input from "./src/components/Input";
