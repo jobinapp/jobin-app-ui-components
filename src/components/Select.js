@@ -39,9 +39,6 @@ const ButtonText = styled(CustomText).attrs(props => ({
 const SelectView = styled.View`
     width: 100%;
     height: 64px;
-    margin-top: 20px;
-    padding-right: ${marginRight};
-    padding-left: ${marginLeft};
     flex-direction: row;
 `;
 
@@ -64,7 +61,6 @@ const SourceImage = styled.Image.attrs(props => ({
 `;
 
 const PrefixTextView = styled.View`
-    margin-left: 4px;
     text-align: center;
 `;
 
