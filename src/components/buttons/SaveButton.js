@@ -5,12 +5,10 @@ import LottieView from "lottie-react-native";
 import { useHeaderHeight } from "react-navigation-stack";
 
 import CustomText from "../CustomText";
-import { whiteColor, greenJobinColor } from "../../constants/color";
+import { whiteColor, greenJobinColor, redJobinColor } from "../../constants/color";
 
 const KeyboardAvoidingViewStyled = styled.KeyboardAvoidingView`
-    flex: 1;
     height: 72px;
-    justify-content: flex-end;
     padding-right: ${props => props.fullScreen ? "0px" : "24px"};
     padding-left: ${props => props.fullScreen ? "0px" : "24px"};
     background-color: ${whiteColor};
@@ -34,7 +32,7 @@ const SaveButton = props => {
 
     return (
         <KeyboardAvoidingViewStyled
-            keyboardVerticalOffset = {headerHeight}
+            keyboardVerticalOffset = {headerHeight+56}
             behavior={Platform.OS === "android" ? null : "padding"}
             enabled={props.disableKeyboard ? !props.disableKeyboard : true}
             fullScreen={props.fullScreen}
