@@ -27,6 +27,7 @@ import ProgressBar from "./src/components/ProgressBar";
 import RadioButton from "./src/components/RadioButton";
 import SearchBar from "./src/components/SearchBar";
 import Select from "./src/components/Select";
+import TextArea from "./src/components/TextArea";
 
 import {
     whiteColor,
@@ -90,6 +91,7 @@ export {
     RadioButton,
     SearchBar,
     Select,
+    TextArea,
     whiteColor,
     blackColor,
     softblackColor,
