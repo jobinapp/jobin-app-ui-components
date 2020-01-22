@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import BottomModal from "../components/modals/BottomModal";
 import CustomText from "../components/CustomText";
-import { softblackColor, deactivatedGrayColor } from "../constants/color";
+import { deactivatedGrayColor } from "../constants/color";
 import { marginLeft, marginRight } from "../constants/mainConstants";
 
 const Container = styled.View`
@@ -22,14 +22,10 @@ const ButtonView = styled.TouchableOpacity`
     flex-direction: row;
 `;
 
-const ButtonImage = styled.Image.attrs(props => ({
-    resizeMode: "contain"
+const ButtonText = styled(CustomText).attrs(props => ({
+    type: "semibold"
 }))`
-    width: 24px;
-    height: 24px;
-`;
-
-const ButtonText = styled(CustomText)`
+    font-size: 17px;
     margin-left: 16px;
 `;
 
@@ -40,7 +36,6 @@ const SelectView = styled.View`
     padding-right: ${marginRight};
     padding-left: ${marginLeft};
     flex-direction: row;
-    ${props => props.style};
 `;
 
 const SelectTouchable = styled.TouchableOpacity`
@@ -50,20 +45,25 @@ const SelectTouchable = styled.TouchableOpacity`
     padding-right: 8px;
     flex-direction: row;
     align-items: center;
-    border-bottom-color: ${softblackColor};
+    border-bottom-color: ${deactivatedGrayColor};
     border-bottom-width: 1px;
 `;
 
 const SourceImage = styled.Image.attrs(props => ({
     resizeMode: "contain"
 }))`
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 `;
 
 const PrefixTextView = styled.View`
     margin-left: 4px;
     text-align: center;
+`;
+
+const PrefixText = styled(CustomText)`
+    font-size: 16px;
+    color: ${deactivatedGrayColor};
 `;
 
 const Select = props => {
@@ -74,7 +74,6 @@ const Select = props => {
             key: // defines the order
             prefix: // prefix of the text
             value: // logic value
-            source: // if there is a image
             selected // whether the element is selected or not
         },
         ...
@@ -85,21 +84,18 @@ const Select = props => {
             key: "1",
             prefix: "+34",
             value: "España",
-            source: require("../assets/images/registro/flags/spainFlag.png"),
             selected: true
         },
         {
             key: "2",
             prefix: "+33",
             value: "Francia",
-            source: require("../assets/images/registro/flags/franceFlag.png"),
             selected: false
         },
         {
             key: "3",
             prefix: "+351",
             value: "Portugal",
-            source: require("../assets/images/registro/flags/portugalFlag.png"),
             selected: false
         }
     ];
@@ -113,19 +109,11 @@ const Select = props => {
             ? prefixArray.filter(item => item.selected)[0].value
             : ""
     );
-    const [source, setSource] = useState(
-        prefixArray && prefixArray.length > 0
-            ? prefixArray.filter(item => item.selected)[0].source
-                ? prefixArray.filter(item => item.selected)[0].source
-                : ""
-            : ""
-    );
     const [modalVisible, setModalVisible] = useState(false);
 
     const itemSelected = item => {
         setPrefix(item.prefix);
         setValue(item.value);
-        setSource(item.source);
         setModalVisible(false);
     };
 
@@ -139,10 +127,7 @@ const Select = props => {
                 // onPress={props.cameraAction}
                 onPress={() => itemSelected(item)}
             >
-                <ButtonImage source={item.source} />
-                <ButtonText type="semibold" fontSize={17}>
-                    {item.prefix}
-                </ButtonText>
+                <ButtonText>{item.prefix}</ButtonText>
                 <CustomText style={{ marginLeft: 8 }} fontSize={17}>
                     {item.value}
                 </CustomText>
@@ -154,10 +139,12 @@ const Select = props => {
         <Container>
             <SelectView>
                 <SelectTouchable onPress={showModal}>
-                    <SourceImage source={source} />
                     <PrefixTextView>
-                        <CustomText fontSize={20}>{prefix}</CustomText>
+                        <PrefixText>{prefix}</PrefixText>
                     </PrefixTextView>
+                    <SourceImage
+                        source={require("../assets/images/common/arrowDown.png")}
+                    />
                 </SelectTouchable>
             </SelectView>
             <BottomModal
