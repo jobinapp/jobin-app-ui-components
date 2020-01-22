@@ -55,7 +55,7 @@ const SearchCell = props => {
                             fontSize={14}
                             textColor={deactivatedGrayColor}
                         >
-                            Hola
+                            {props.subtitle}
                         </CustomText>
                     )}
                 </View>
