@@ -22,6 +22,13 @@ const ButtonView = styled.TouchableOpacity`
     flex-direction: row;
 `;
 
+const ButtonImage = styled.Image.attrs(props => ({
+    resizeMode: "contain"
+}))`
+    width: 24px;
+    height: 24px;
+`;
+
 const ButtonText = styled(CustomText).attrs(props => ({
     type: "semibold"
 }))`
@@ -84,18 +91,21 @@ const Select = props => {
             key: "1",
             prefix: "+34",
             value: "España",
+            source: require("../assets/images/registro/flags/spainFlag.png"),
             selected: true
         },
         {
             key: "2",
             prefix: "+33",
             value: "Francia",
+            source: require("../assets/images/registro/flags/franceFlag.png"),
             selected: false
         },
         {
             key: "3",
             prefix: "+351",
             value: "Portugal",
+            source: require("../assets/images/registro/flags/portugalFlag.png"),
             selected: false
         }
     ];
@@ -127,6 +137,7 @@ const Select = props => {
                 // onPress={props.cameraAction}
                 onPress={() => itemSelected(item)}
             >
+                <ButtonImage source={item.source} />
                 <ButtonText>{item.prefix}</ButtonText>
                 <CustomText style={{ marginLeft: 8 }} fontSize={17}>
                     {item.value}
