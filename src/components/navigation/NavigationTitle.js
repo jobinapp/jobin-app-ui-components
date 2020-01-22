@@ -17,9 +17,10 @@ const Container = styled.View`
 
 const NavigationTitle = props => {
     const textColor = props.textColor ? props.textColor : softblackColor;
+    const fontSize = props.fontSize ? props.fontSize : 24;
     return (
         <Container>
-            <CustomText type="bold" fontSize={24} textColor={textColor}>
+            <CustomText type="bold" fontSize={fontSize} textColor={textColor}>
                 {props.titleText}
             </CustomText>
         </Container>
