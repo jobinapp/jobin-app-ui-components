@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import CustomText from "./CustomText";
-import { lineColor, deactivatedGrayColor, redJobinColor } from "../constants/color";
+import { deactivatedGrayColor, redJobinColor, greenJobinColor } from "../constants/color";
 import { regular } from "../constants/fonts";
 
 const View = styled.View`
     height: 58px;
     border-bottom-width: 1px;
-    border-bottom-color: ${props => props.badInput ? redJobinColor : lineColor};
+    border-bottom-color: ${props => props.badInput ? redJobinColor : deactivatedGrayColor};
     ${props => props.style};
 `;
 const TextInput = styled.TextInput`
@@ -36,7 +36,12 @@ const Input = props => {
             >
                 {props.placeholder && value ? props.placeholder : ""}
             </CustomText>
-            <TextInput onChangeText={onChange} {...other} />
+            <TextInput
+                onChangeText={onChange}
+                placeholderTextColor={deactivatedGrayColor}
+                selectionColor={greenJobinColor}
+                {...other}
+            />
         </View>
     );
 };

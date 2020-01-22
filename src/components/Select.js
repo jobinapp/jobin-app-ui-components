@@ -44,13 +44,13 @@ const SelectView = styled.View`
 
 const SelectTouchable = styled.TouchableOpacity`
     height: 64px;
-    width: 80px;
     padding-left: 8px;
     padding-right: 8px;
     flex-direction: row;
     align-items: center;
     border-bottom-color: ${deactivatedGrayColor};
     border-bottom-width: 1px;
+    padding-top: 12px;
 `;
 
 const SourceImage = styled.Image.attrs(props => ({
@@ -121,6 +121,7 @@ const Select = props => {
         setPrefix(item.prefix);
         setValue(item.value);
         setModalVisible(false);
+        props.onChange ? props.onChange(item) : null;
     };
 
     const showModal = () => {
