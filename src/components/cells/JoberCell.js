@@ -170,12 +170,10 @@ const JoberCell = props => {
         return (
             <JoberCellView>
                 <Image
-                    style={styles.joberImage}
                     source={require("../../assets/images/common/joberEmpty.png")}
                 />
                 <View>
                     <CustomText
-                        style={styles.joberLabel}
                         type="semibold"
                         fontSize={16}
                         textColor={deactivatedGrayColor}
