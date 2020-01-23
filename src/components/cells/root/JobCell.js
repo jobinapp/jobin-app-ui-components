@@ -45,8 +45,8 @@ const JobCloseCell = props => {
             >
                 <TitleView>
                     <CustomText
-                        type="semibold"
-                        fontSize={13}
+                        type="bold"
+                        fontSize={12}
                         textColor="#848484"
                         numberOfLines={1}
                     >
