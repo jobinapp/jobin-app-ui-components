@@ -5,10 +5,10 @@ import LottieView from "lottie-react-native";
 import { useHeaderHeight } from "react-navigation-stack";
 
 import CustomText from "../CustomText";
-import { whiteColor, greenJobinColor, redJobinColor } from "../../constants/color";
+import { whiteColor, greenJobinColor } from "../../constants/color";
 
 const KeyboardAvoidingViewStyled = styled.KeyboardAvoidingView`
-    height: 72px;
+    height: ${props => props.fullScreen ? "56px" : "72px"};;
     padding-right: ${props => props.fullScreen ? "0px" : "24px"};
     padding-left: ${props => props.fullScreen ? "0px" : "24px"};
     background-color: ${whiteColor};
@@ -23,7 +23,8 @@ const Button = styled.TouchableOpacity`
     border-radius: ${props => props.fullScreen ? "0px" : "4px"};
     opacity: ${props => (props.disabled ? 0.5 : 1.0)};
     flex-direction: row;
-    margin-bottom: ${props => props.fullScreen ? "0px" : "8px"};;
+    margin-top: ${props => props.fullScreen ? "0px" : "8px"};
+    margin-bottom: ${props => props.fullScreen ? "0px" : "8px"};
 `;
 
 const SaveButton = props => {
