@@ -19,6 +19,7 @@ import LoadingModal from "./src/components/modals/LoadingModal";
 import NavigationSubtitle from "./src/components/navigation/NavigationSubtitle";
 import NavigationTitle from "./src/components/navigation/NavigationTitle";
 import TabBarIcon from "./src/components/navigation/TabBarIcon";
+import CheckBox from "./src/components/CheckBox";
 import AddPayCardForm from "./src/components/AddPayCardForm";
 import Counter from "./src/components/Counter";
 import CustomText from "./src/components/CustomText";
@@ -84,6 +85,7 @@ export {
     // CardNumberInput,
     // CvcCardInput,
     AddPayCardForm,
+    CheckBox,
     Counter,
     CustomText,
     Input,
