@@ -37,8 +37,8 @@ const CheckBox = props => {
             <CheckImage
                 source={
                     props.selected
-                        ? require("../assets/images/common/checkboxChecked.png")
-                        : require("../assets/images/common/checkboxUnchecked.png")
+                        ? require("../assets/images/common/checkboxOn.png")
+                        : require("../assets/images/common/checkboxOff.png")
                 }
             />
             <TextView selected={props.selected}>
