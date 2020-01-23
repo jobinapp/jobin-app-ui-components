@@ -19,7 +19,7 @@ const NavigationTitle = props => {
     const textColor = props.textColor ? props.textColor : softblackColor;
     const fontSize = props.fontSize ? props.fontSize : 24;
     return (
-        <Container>
+        <Container style={props.style}>
             <CustomText type="bold" fontSize={fontSize} textColor={textColor}>
                 {props.titleText}
             </CustomText>
