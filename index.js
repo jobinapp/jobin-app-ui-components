@@ -1,11 +1,9 @@
 import Button from "./src/components/buttons/Button";
 import CallToAction from "./src/components/buttons/CallToAction";
 import SaveButton from "./src/components/buttons/SaveButton";
-import JobBidCell from "./src/components/cells/JobCells/JobBidCell"
 import JobCloseCell from "./src/components/cells/JobCells/JobCloseCell";
 import JobFixedCell from "./src/components/cells/JobCells/JobFixedCell";
 import JobLeadCell from "./src/components/cells/JobCells/JobLeadCell";
-import JobTransportCell from "./src/components/cells/JobCells/JobTransportCell";
 import JobCell from "./src/components/cells/root/JobCell";
 import FatherVerticalCell from "./src/components/cells/VerticalCells/FatherVerticalCell";
 import FixedVerticalCell from "./src/components/cells/VerticalCells/FixedVerticalCell";
@@ -63,11 +61,9 @@ export {
     Button,
     CallToAction,
     SaveButton,
-    JobBidCell,
     JobCloseCell,
     JobFixedCell,
     JobLeadCell,
-    JobTransportCell,
     JobCell,
     FatherVerticalCell,
     FixedVerticalCell,

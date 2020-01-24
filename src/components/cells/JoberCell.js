@@ -23,12 +23,11 @@ const JoberCellButton = styled.TouchableOpacity`
 `;
 
 const JoberCellView = styled.View`
-    flex: 1;
+    height: 72px;
     flex-direction: row;
     margin-right: 16px;
     margin-left: 16px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    align-items: center;
 `;
 
 const JoberBadge = styled.Image`
@@ -113,8 +112,6 @@ const JoberCell = props => {
                     <CustomText
                         numberOfLines={1}
                         style={{ marginTop: 2 }}
-                        type="semibold"
-                        fontSize={16}
                     >
                         {jober.get("Name")}
                     </CustomText>
@@ -169,13 +166,11 @@ const JoberCell = props => {
     else {
         return (
             <JoberCellView>
-                <Image
-                    style={styles.joberImage}
+                <JoberBadge
                     source={require("../../assets/images/common/joberEmpty.png")}
                 />
                 <View>
                     <CustomText
-                        style={styles.joberLabel}
                         type="semibold"
                         fontSize={16}
                         textColor={deactivatedGrayColor}

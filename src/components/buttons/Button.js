@@ -19,7 +19,7 @@ const Button = props => {
             style={props.style}
             {...props}
         >
-            <CustomText type="bold" fontSize={17} textColor={whiteColor}>
+            <CustomText type="bold" fontSize={17} textColor={props.textColor ? props.textColor : whiteColor}>
                 {props.buttonText}
             </CustomText>
         </ButtonStyled>
