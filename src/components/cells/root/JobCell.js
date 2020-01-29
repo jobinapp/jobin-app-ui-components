@@ -22,8 +22,9 @@ const CellButton = styled.TouchableOpacity`
 `;
 
 const TitleView = styled.View`
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
     border-bottom-width: 1px;
@@ -52,7 +53,7 @@ const JobCloseCell = props => {
                     >
                         {job.get("Type").toUpperCase()}
                     </CustomText>
-                    <CustomText type="bold" fontSize={20} numberOfLines={1}>
+                    <CustomText type="bold" fontSize={18} numberOfLines={2}>
                         {job.get("Title")}
                     </CustomText>
                 </TitleView>

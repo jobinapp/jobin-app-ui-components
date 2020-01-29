@@ -25,8 +25,8 @@ const JoberCellButton = styled.TouchableOpacity`
 const JoberCellView = styled.View`
     height: 72px;
     flex-direction: row;
-    margin-right: 16px;
-    margin-left: 16px;
+    margin-right: 24px;
+    margin-left: 24px;
     align-items: center;
 `;
 
@@ -175,10 +175,10 @@ const JoberCell = props => {
                         fontSize={16}
                         textColor={deactivatedGrayColor}
                     >
-                        Profesional
+                        Perfil de Jober
                     </CustomText>
                     <CustomText fontSize={14} textColor={deactivatedGrayColor}>
-                        Aquí aparecerá un Jober
+                        Aquí verás a tu Jober asignado
                     </CustomText>
                 </View>
             </JoberCellView>
