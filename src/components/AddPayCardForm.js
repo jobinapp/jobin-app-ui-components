@@ -17,9 +17,9 @@ const AddPayCardForm = props => {
     const [name, setName] = useState(undefined);
     const [cardNumber, setCardNumber] = useState(undefined);
     const [cvc, setCvc] = useState(undefined);
-    const [month, setMonth] = useState(undefined);
-    const [year, setYear] = useState(undefined);
-    const [dateText, setDateText] = useState(undefined);
+    const [month, setMonth] = useState(null);
+    const [year, setYear] = useState(null);
+    const [dateText, setDateText] = useState("");
 
     const onNameChange = text => {
         if (text.length > 2) {

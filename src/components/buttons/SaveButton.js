@@ -11,7 +11,7 @@ const KeyboardAvoidingViewStyled = styled.KeyboardAvoidingView`
     height: ${props => props.fullScreen ? "56px" : "72px"};;
     padding-right: ${props => props.fullScreen ? "0px" : "24px"};
     padding-left: ${props => props.fullScreen ? "0px" : "24px"};
-    background-color: ${whiteColor};
+    background-color: ${props => props.backgroundColor ? props.backgroundColor : whiteColor};
 `;
 
 const Button = styled.TouchableOpacity`
@@ -37,6 +37,7 @@ const SaveButton = props => {
             behavior={Platform.OS === "android" ? null : "padding"}
             enabled={props.disableKeyboard ? !props.disableKeyboard : true}
             fullScreen={props.fullScreen}
+            backgroundColor={props.backgroundColor}
         >
             <Button
                 onPress={props.onPress}
