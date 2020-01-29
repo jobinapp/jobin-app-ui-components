@@ -27,6 +27,7 @@ import RadioButton from "./src/components/RadioButton";
 import SearchBar from "./src/components/SearchBar";
 import Select from "./src/components/Select";
 import TextArea from "./src/components/TextArea";
+import ProgressView from "./src/components/ProgressView";
 
 import {
     whiteColor,
@@ -77,14 +78,11 @@ export {
     NavigationSubtitle,
     NavigationTitle,
     TabBarIcon,
-    // CardExpiryDateInput,
-    // CardNameInput,
-    // CardNumberInput,
-    // CvcCardInput,
     AddPayCardForm,
     CheckBox,
     Counter,
     CustomText,
+    ProgressView,
     Input,
     ProgressBar,
     RadioButton,
