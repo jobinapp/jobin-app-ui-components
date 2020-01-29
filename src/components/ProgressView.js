@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { View } from "react-native";
 import styled from "styled-components";
-import Jobin from 'jobin-client/react-native';
 
 import CustomText from './CustomText';
 import {lineColor, greenJobinColor} from '../constants/color'
@@ -32,7 +31,7 @@ const BodyView = styled.View`
 
 const ProgressView = props => {
 
-    const state = "finalizado";
+    const state = props.job.get("State");
     const step = state === "draft" ? 0
         : (state === "pending" || state === "abierto") ? 1
         : state === "full" ? 2
@@ -56,10 +55,11 @@ const ProgressView = props => {
                         Servicio contratado
                     </CustomText>
                     <BodyView>
-                        <CustomText >
-                            {step === 0 ? "Para contratar el servicio debes finalizar el proceso de pago"
-                                : Jobin.Date.toLargeFormat(props.job.createdAt).result}
-                        </CustomText>
+                        {step === 0 &&
+                            <CustomText >
+                                Para contratar el servicio debes finalizar el proceso de pago
+                            </CustomText>
+                        }
                         {step === 0 &&
                             <CallToAction
                                 style={{marginTop: 8}}
@@ -83,9 +83,9 @@ const ProgressView = props => {
                         Jober asignado
                     </CustomText>
                     <BodyView>
-                        {step >= 1 &&
+                        {step === 1 &&
                             <CustomText >
-                                {step === 1 ? "En proceso" : "Fecha de asignación"}
+                                En proceso
                             </CustomText>
                         }
                     </BodyView>
@@ -104,9 +104,9 @@ const ProgressView = props => {
                         Servicio finalizado
                     </CustomText>
                     <BodyView>
-                        {step >= 2 &&
+                        {step === 2 &&
                             <CustomText >
-                                {step === 2 ? "En proceso" : "Fecha de finalización"}
+                                En proceso
                             </CustomText>
                         }
                     </BodyView>
@@ -124,9 +124,10 @@ const ProgressView = props => {
                         Servicio valorado
                     </CustomText>
                     <BodyView>
-                        {step === 3 &&
+                        {(step === 3 && state === "finalizado") &&
                             <CallToAction
                                 buttonText="Escribir valoración"
+                                onPress={props.goToReview ? props.goToReview : null}
                             />
                         }
                     </BodyView>
